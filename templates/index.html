@@ -144,77 +144,39 @@
         </div>
       </div>
       <!-- Artists Grid — Replace with Go template range -->
-      <div class="artists-grid" id="artists-grid">
-        <!-- {{range .Artists}} -->
-        <!-- Example Artist Card (repeat with Go template) -->
-        <a href="/artist/1" class="artist-card">
-          <div class="artist-card-image">
-            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&h=500&fit=crop" alt="Queen band photo" />
-            <div class="artist-card-overlay"></div>
-            <div class="hover-button">
-              <span class="btn btn-hero">View Details</span>
+        <div class="artists-grid" id="artists-grid">
+          {{range .}}
+          <a href="/artist/{{.Id}}" class="artist-card">
+            <div class="artist-card-image">
+              <img src="{{.Image}}" alt="{{.Name}}" />
+              <div class="artist-card-overlay"></div>
+              <div class="hover-button">
+                <span class="btn btn-hero">View Details</span>
+              </div>
             </div>
-          </div>
-          <div class="artist-card-body">
-            <h3>Queen</h3>
-            <div class="artist-card-meta">
-              <span>
-                <svg class="icon-sm icon-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                1970
-              </span>
-              <span>
-                <svg class="icon-sm icon-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                4 members
-              </span>
-              <span>
-                <svg class="icon-sm icon-glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                707 concerts
-              </span>
+            <div class="artist-card-body">
+              <h3>{{.Name}}</h3>
+              <div class="artist-card-meta">
+                <span>
+                  <svg class="icon-sm icon-primary"><!-- svg code --></svg>
+                  {{.CreationDate}}
+                </span>
+                <span>
+                  <svg class="icon-sm icon-accent"><!-- svg code --></svg>
+                  {{len .Members}} members
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="bottom-line"></div>
-        </a>
-        <!-- Artist Card with Tour Badge Example -->
-        <a href="/artist/3" class="artist-card">
-          <div class="artist-card-image">
-            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500&h=500&fit=crop" alt="Coldplay band photo" />
-            <div class="artist-card-overlay"></div>
-            <div class="tour-badge badge-accent">
-              <span class="dot"></span> On Tour
-            </div>
-            <div class="hover-button">
-              <span class="btn btn-hero">View Details</span>
-            </div>
-          </div>
-          <div class="artist-card-body">
-            <h3>Coldplay</h3>
-            <div class="artist-card-meta">
-              <span>
-                <svg class="icon-sm icon-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                1996
-              </span>
-              <span>
-                <svg class="icon-sm icon-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                4 members
-              </span>
-              <span>
-                <svg class="icon-sm icon-glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                892 concerts
-              </span>
-            </div>
-          </div>
-          <div class="bottom-line"></div>
-        </a>
-        <!-- {{end}} -->
-      </div>
+            <div class="bottom-line"></div>
+          </a>
+          {{end}}
+        </div>
       <!-- No Results State (show when no artists match) -->
-      <!--
       <div class="no-results">
         <div class="emoji-circle">🎵</div>
         <h3>No Artists Found</h3>
         <p>Try adjusting your search or filters to find what you're looking for.</p>
       </div>
-      -->
     </div>
   </section>
   <!-- ======== Footer ======== -->
