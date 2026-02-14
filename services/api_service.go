@@ -16,6 +16,7 @@ func FetchArtist() ([]models.Artist, error) {
 
 	//* 2. Make HTTP GET Request
 	resp, err := http.Get(artistUrl)
+
 	if err != nil {
 		//! Network Error
 		return nil, fmt.Errorf("failed to fetch artists: %w", err)
